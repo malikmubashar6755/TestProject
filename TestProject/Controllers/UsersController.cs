@@ -117,8 +117,9 @@ namespace TestProject.Controllers
 
             return Ok(new { message = "User deleted successfully" });
         }
-        [HttpPost]
+        [HttpPost]       
         [Route("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginViewModel request)
         {
             // Check Email
@@ -139,8 +140,9 @@ namespace TestProject.Controllers
                     var response = new LoginViewModel()
                     {
                         Email = request.Email,
-                        Role = request.Role,
-                        
+                        Roles = roles.ToList(),
+                        Token = jwtToken
+
                     };
 
                     return Ok(response);
