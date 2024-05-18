@@ -12,7 +12,7 @@ namespace TestProject.Model
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public string Token { get; set; }
-        public List<string> Roles { get; set; }
+       
+        public string Role { get; set; }
     }
 }

@@ -135,17 +135,8 @@ namespace TestProject.Controllers
                     var roles = await _userManager.GetRolesAsync(identityUser);
 
                     // Create a Token and Response
-                    var jwtToken = _tokenRepository.CreateJwtToken(identityUser, roles.ToList());
-
-                    var response = new LoginViewModel()
-                    {
-                        Email = request.Email,
-                        Roles = roles.ToList(),
-                        Token = jwtToken
-
-                    };
-
-                    return Ok(response);
+                    
+                    return Ok(roles);
                 }
             }
             ModelState.AddModelError("", "Email or Password Incorrect");
